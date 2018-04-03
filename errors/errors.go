@@ -33,20 +33,20 @@ func (e *Response) HTTPStatusCode() float64 {
 	return e.StatusCode
 }
 
-func (e *Response) FromNet(body interface{}) *Response {
-	var imAMap map[string]interface{}
+func (e *Response) fromMap(body interface{}) *Response {
+	var imTheMap map[string]interface{}
 	var ok bool
-	if imAMap, ok = body.(map[string]interface{}); !ok {
+	if imTheMap, ok = body.(map[string]interface{}); !ok {
 		return createEmptyErrorResponse(body)
 	}
 
 	var errorInfo map[string]interface{}
 
-	if errorInfo, ok = imAMap["error"].(map[string]interface{}); !ok {
+	if errorInfo, ok = imTheMap["error"].(map[string]interface{}); !ok {
 		return createEmptyErrorResponse(body)
 	}
 	var statusCode float64
-	if statusCode, ok = imAMap["statusCode"].(float64); !ok {
+	if statusCode, ok = imTheMap["statusCode"].(float64); !ok {
 		return createEmptyErrorResponse(body)
 	}
 
@@ -83,7 +83,7 @@ func createEmptyErrorResponse(body interface{}) *Response {
 	}
 }
 
-func CreateResponseFromNet(body interface{}) *Response {
+func CreateResponseFromMap(body interface{}) *Response {
 	var errResp Response
-	return errResp.FromNet(body)
+	return errResp.fromMap(body)
 }
