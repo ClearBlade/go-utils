@@ -4,14 +4,15 @@ import (
 	"encoding/json"
 	"fmt"
 
+	utils "github.com/clearblade/go-utils"
 	cc "github.com/clearblade/go-utils/errors/constants/category"
 	uuid "github.com/clearblade/go-utils/uuid"
 )
 
 type Info struct {
 	Id            uuid.Uuid           `json:"id"`
-	Code          float64             `json:"code"`
-	Level         float64             `json:"level"`
+	Code          int                 `json:"code"`
+	Level         int                 `json:"level"`
 	Category      cc.CategoryConstant `json:"category"`
 	Message       string              `json:"message"`
 	Detail        string              `json:"detail"`
@@ -20,8 +21,8 @@ type Info struct {
 }
 
 type Response struct {
-	Info       Info    `json:"error" mapstructure:"error"`
-	StatusCode float64 `json:"statusCode"`
+	Info       Info `json:"error" mapstructure:"error"`
+	StatusCode int  `json:"statusCode"`
 }
 
 func (e *Response) Error() string {
@@ -29,10 +30,14 @@ func (e *Response) Error() string {
 	return string(marsha)
 }
 
-func (e *Response) HTTPStatusCode() float64 {
+func (e *Response) HTTPStatusCode() int {
 	return e.StatusCode
 }
 
+// this func is used to convert a JSON decoded HTTP response into the Response object
+// one tricky thing to note is that the JSON decoder assumes that all numbers are float64, but
+// the Response object only uses ints for code, level, statusCode, etc.
+// because of this we need to do some conversion between the two types
 func (e *Response) fromMap(body interface{}) *Response {
 	var imTheMap map[string]interface{}
 	var ok bool
@@ -45,8 +50,8 @@ func (e *Response) fromMap(body interface{}) *Response {
 	if errorInfo, ok = imTheMap["error"].(map[string]interface{}); !ok {
 		return createEmptyErrorResponse(body)
 	}
-	var statusCode float64
-	if statusCode, ok = imTheMap["statusCode"].(float64); !ok {
+	statusCode, err := utils.ConvertFloatFieldToInt(imTheMap, "statusCode")
+	if err != nil {
 		return createEmptyErrorResponse(body)
 	}
 
@@ -56,11 +61,21 @@ func (e *Response) fromMap(body interface{}) *Response {
 	if err != nil {
 		return createEmptyErrorResponse(body)
 	}
+	errorCode, err := utils.ConvertFloatFieldToInt(errorInfo, "code")
+	if err != nil {
+		return createEmptyErrorResponse(body)
+	}
+
+	errorLevel, err := utils.ConvertFloatFieldToInt(errorInfo, "level")
+	if err != nil {
+		return createEmptyErrorResponse(body)
+	}
+
 	info := Info{
 		Id:            parsedId,
 		Message:       errorInfo["message"].(string),
-		Code:          errorInfo["code"].(float64),
-		Level:         errorInfo["level"].(float64),
+		Code:          errorCode,
+		Level:         errorLevel,
 		Category:      cc.CategoryConstant(errorInfo["category"].(string)),
 		Detail:        errorInfo["detail"].(string),
 		LowLevelError: fmt.Errorf("%+v", errorInfo["lowLevelError"]),
