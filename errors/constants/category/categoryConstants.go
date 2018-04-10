@@ -24,4 +24,5 @@ const (
 	SSL_ISSUE         CategoryConstant = "SSL"
 	ADAPTORS_ISSUE    CategoryConstant = "Adaptors"
 	EDGE_GROUPS_ISSUE CategoryConstant = "Edge Groups"
+	IPM_ISSUE         CategoryConstant = "Ipm"
 )
