@@ -38,7 +38,11 @@ const (
 	SERVICE_CODE_NOT_FOUND_ERROR     = "No service with that name"
 	ENDPOINT_DEPRECATED_ERROR        = "This endpoint is deprecated"
 
-	GITHUB_AUTH_TOKEN_MISSING_ERROR = "Request header must contain github Oauth access-token"
-	GITHUB_REPO_CREATION_ERROR      = "Unable to create github repo"
-	NON_FATAL_IPM_ERROR             = "Some Errors occured, but didn't completely fail"
+	GITHUB_AUTH_TOKEN_MISSING_ERROR          = "Request header must contain github Oauth access-token"
+	GITHUB_REPO_CREATION_ERROR               = "Unable to create github repo"
+	NON_FATAL_IPM_ERROR                      = "Some Errors occured, but didn't completely fail"
+	EXPORT_TO_FILE_SYSTEM_ERROR              = "Unable to perform selective export to filesystem"
+	MISSING_QUERY_TAG_ERROR                  = "queryTag is missing when fetching tags"
+	CREATE_ANON_USER_WITH_SYSTEM_CREDS_ERROR = "Unable to create anon user with system creds"
+	SYSTEM_TAG_FETCH_ERROR                   = "Unable to fetch system tags"
 )
