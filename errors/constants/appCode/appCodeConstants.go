@@ -266,4 +266,5 @@ const (
 	GITHUB_REPO_CREATION_ERROR               = 5102
 	EXPORT_TO_FILE_SYSTEM_ERROR              = 5201
 	SYSTEM_TAG_FETCH_ERROR                   = 5300
+	OS_REMOVE_DIR_ERROR                      = 6000
 )

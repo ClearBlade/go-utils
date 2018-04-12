@@ -45,4 +45,5 @@ const (
 	MISSING_QUERY_TAG_ERROR                  = "queryTag is missing when fetching tags"
 	CREATE_ANON_USER_WITH_SYSTEM_CREDS_ERROR = "Unable to create anon user with system creds"
 	SYSTEM_TAG_FETCH_ERROR                   = "Unable to fetch system tags"
+	OS_REMOVE_DIR_ERROR                      = "Unable to remove direcory"
 )
