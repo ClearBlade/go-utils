@@ -38,6 +38,7 @@ const (
 	SERVICE_CODE_NOT_FOUND_ERROR     = "No service with that name"
 	ENDPOINT_DEPRECATED_ERROR        = "This endpoint is deprecated"
 
+	// IPM Message constants
 	GITHUB_MISSING_AUTH_TOKEN_ERROR          = "Request header must contain github Oauth access-token"
 	GITHUB_REPO_CREATION_ERROR               = "Unable to create github repo"
 	NON_FATAL_IPM_ERROR                      = "Some Errors occured, but didn't completely fail"
