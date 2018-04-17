@@ -53,7 +53,7 @@ const (
 	EXPORTER_INITIALIZATION_ERROR            = "Error initializing Exporter"
 	SYSTEM_FOLDER_CREATION_ERROR             = "Couldn't create system folder"
 	LIST_FILES_FROM_DIR_ERROR                = "Error listing files from a directory"
-	BAD_SYSTEM_NAME                          = "Bad System name"
+	INVALID_SYSTEM_NAME                      = "Invalid System name"
 	PARSE_SYSTEM_SETTINGS_ERROR              = "Parse System Settings Error"
 	GITHUB_GET_SHA_OF_REPO_ERROR             = "Unable to get SHA of github branch"
 	GITHUB_GET_TREE_OF_REPO_ERROR            = "Unable to get tree of repo branch error"

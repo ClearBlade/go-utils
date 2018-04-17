@@ -279,5 +279,6 @@ const (
 	EXPORT_TO_FILE_SYSTEM_ERROR              = 5201
 	SYSTEM_TAG_FETCH_ERROR                   = 5300
 	OS_REMOVE_DIR_ERROR                      = 6000
-	LIST_FILES_FROM_DIR_ERROR                = 5006
+	LIST_FILES_FROM_DIR_ERROR                = 5008
+	INVALID_SYSTEM_NAME                      = 5009
 )
