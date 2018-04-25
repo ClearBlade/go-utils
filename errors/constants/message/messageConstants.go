@@ -63,4 +63,8 @@ const (
 	GITHUB_REPO_PROCESSING_FOR_IMPORT_ERROR  = "Unable to process github repo for import"
 	MAKE_IDENTITY_REQUEST_TO_GITHUB_ERROR    = "Error making github identity request to the github server"
 	INCORRECT_LOGIN_INFO                     = "Incorrect login info"
+
+	// cb-console Message constants
+	PARSE_ZIP_FILE_ERROR = "Unable to parse zip file"
+	MISSING_TOKEN_ERROR  = "Missing dev token header"
 )

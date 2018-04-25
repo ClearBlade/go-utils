@@ -281,4 +281,8 @@ const (
 	OS_REMOVE_DIR_ERROR                      = 6000
 	LIST_FILES_FROM_DIR_ERROR                = 5008
 	INVALID_SYSTEM_NAME                      = 5009
+
+	// cb-console Specific Errors: (Blocked Range: 7000-8999)
+	PARSE_ZIP_FILE_ERROR = 7000
+	MISSING_TOKEN_ERROR  = 7001
 )

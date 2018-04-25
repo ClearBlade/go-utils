@@ -26,4 +26,5 @@ const (
 	EDGE_GROUPS_ISSUE  CategoryConstant = "Edge Groups"
 	PROVISIONING_ISSUE CategoryConstant = "Edge Provisioning"
 	IPM_ISSUE          CategoryConstant = "Ipm"
+	CONSOLE_ISSUE      CategoryConstant = "Console"
 )
