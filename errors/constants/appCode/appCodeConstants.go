@@ -285,4 +285,11 @@ const (
 	// cb-console Specific Errors: (Blocked Range: 7000-8999)
 	PARSE_ZIP_FILE_ERROR = 7000
 	MISSING_TOKEN_ERROR  = 7001
+
+	// folder-specific errors: (Blocked Range: 9000-9999)
+
+	FOLDERS_READ_ERROR   = 9000
+	FOLDERS_CREATE_ERROR = 9001
+	FOLDERS_UPDATE_ERROR = 9002
+	FOLDERS_DELETE_ERROR = 9003
 )
