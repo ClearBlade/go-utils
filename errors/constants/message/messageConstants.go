@@ -63,6 +63,7 @@ const (
 	GITHUB_REPO_PROCESSING_FOR_IMPORT_ERROR  = "Unable to process github repo for import"
 	MAKE_IDENTITY_REQUEST_TO_GITHUB_ERROR    = "Error making github identity request to the github server"
 	INCORRECT_LOGIN_INFO                     = "Incorrect login info"
+	GITHUB_FILE_CONTENT_FILTERING_ERROR      = "Error in filtering sensitive content failed export"
 
 	// cb-console Message constants
 	PARSE_ZIP_FILE_ERROR = "Unable to parse zip file"
