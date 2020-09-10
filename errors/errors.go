@@ -16,7 +16,7 @@ type Info struct {
 	Category      cc.CategoryConstant `json:"category"`
 	Message       string              `json:"message"`
 	Detail        string              `json:"detail"`
-	LowLevelError error               `json:"lowLevelError"`
+	LowLevelError error               `json:"-"`
 	Line          string              `json:"line"`
 }
 
