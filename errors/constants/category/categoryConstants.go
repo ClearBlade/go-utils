@@ -25,6 +25,7 @@ const (
 	ADAPTORS_ISSUE     CategoryConstant = "Adaptors"
 	EDGE_GROUPS_ISSUE  CategoryConstant = "Edge Groups"
 	PROVISIONING_ISSUE CategoryConstant = "Edge Provisioning"
+	BUCKET_SETS_ISSUE  CategoryConstant = "Bucket Sets"
 	IPM_ISSUE          CategoryConstant = "Ipm"
 	CONSOLE_ISSUE      CategoryConstant = "Console"
 	FOLDERS_ISSUE      CategoryConstant = "Folders"
