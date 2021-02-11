@@ -56,30 +56,31 @@ func (e *Response) fromMap(body interface{}) *Response {
 	}
 
 	// alright, it must be the format we're expecting. let's grab the fields we need
-
 	parsedId, err := uuid.ParseUuid(errorInfo["id"].(string))
 	if err != nil {
 		return createEmptyErrorResponse(body)
 	}
-	errorCode, err := utils.ConvertFloatFieldToInt(errorInfo, "code")
-	if err != nil {
-		return createEmptyErrorResponse(body)
+
+	message := ""
+	if val, ok := errorInfo["message"].(string); ok {
+		message = val
 	}
 
-	errorLevel, err := utils.ConvertFloatFieldToInt(errorInfo, "level")
-	if err != nil {
-		return createEmptyErrorResponse(body)
+	detail := ""
+	if val, ok := errorInfo["detail"].(string); ok {
+		detail = val
+	}
+
+	line := ""
+	if val, ok := errorInfo["line"].(string); ok {
+		line = val
 	}
 
 	info := Info{
-		Id:            parsedId,
-		Message:       errorInfo["message"].(string),
-		Code:          errorCode,
-		Level:         errorLevel,
-		Category:      cc.CategoryConstant(errorInfo["category"].(string)),
-		Detail:        errorInfo["detail"].(string),
-		LowLevelError: fmt.Errorf("%+v", errorInfo["lowLevelError"]),
-		Line:          errorInfo["line"].(string),
+		Id:      parsedId,
+		Message: message,
+		Detail:  detail,
+		Line:    line,
 	}
 
 	return &Response{
